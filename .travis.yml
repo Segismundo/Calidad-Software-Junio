@@ -48,5 +48,5 @@ deploy:
   - "app/*"
  skip_cleanup: true
  on:
-  repo: Segismundo/Calidad-Software-Junio
+  repo: Segismundo/Calidad-Software-Junio/tree/develop
   tags: false
