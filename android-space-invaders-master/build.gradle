@@ -9,9 +9,17 @@ buildscript {
     }
 }
 
+plugins {
+    id "co.riiid.gradle" version "0.4.2"
+}
+
 allprojects {
     repositories {
         jcenter()
         google()
     }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }
