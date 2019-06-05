@@ -1,0 +1,52 @@
+sudo: false
+language: android
+jdk: oraclejdk8
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- r features/support
+- r features/step_definitions
+cache:
+ directories:
+ - $HOME/.gradle/caches
+ - $HOME/.gradle/wrapper/
+env:
+ global:
+  - ANDROID_API_LEVEL=25
+  - EMULATOR_API_LEVEL=21
+  - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+  - ANDROID_ABI=google_apis/armeabi-v7a
+  - ADB_INSTALL_TIMEOUT=20
+android:
+ components:
+  - platform-tools
+  - tools
+  - android-28
+  - build-tools-28.0.3
+  - extra-google-m2repository
+  - extra-android-m2repository
+  # Google Play Services
+  - extra-google-google_play_services
+  # Support library
+  - extra-android-support
+  - addon-google_apis-google-$ANDROID_API_LEVEL
+  - addon-google_apis-google-$EMULATOR_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+before_install:
+- chmod +x android-space-invaders-master/gradlew
+- yes | sdkmanager "platforms;android-28"
+script:
+- ./android-space-invaders-master/gradlew clean
+- ./android-space-invaders-master/gradlew assembleDebug
+- ./android-space-invaders-master/gradlew assembleDebugAndroidTest
+
+deploy:
+ provider: releases
+ api_key: $GITHUB_TOKEN
+ file: 
+  - "app/*"
+ skip_cleanup: true
+ on:
+  repo: Segismundo/Calidad-Software-Junio
+  tags: false
