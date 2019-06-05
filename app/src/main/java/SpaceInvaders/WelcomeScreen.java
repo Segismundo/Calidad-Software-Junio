@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Align;
 import android.graphics.Typeface;
+
 
 public class WelcomeScreen {
 	private GameView gameView;

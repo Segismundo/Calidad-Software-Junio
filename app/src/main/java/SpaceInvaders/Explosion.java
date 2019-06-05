@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 
 import android.graphics.Bitmap;
 

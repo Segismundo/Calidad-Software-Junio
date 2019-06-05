@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;

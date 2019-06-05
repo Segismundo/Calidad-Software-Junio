@@ -1,6 +1,5 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 
-import marcosYedro.Android.SpaceInvaders.GameView;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Window;
