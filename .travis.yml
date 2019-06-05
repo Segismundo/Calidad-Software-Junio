@@ -34,12 +34,12 @@ android:
   - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
   - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
 before_install:
-- chmod +x android-space-invaders-master/gradlew
+- chmod +x gradlew
 - yes | sdkmanager "platforms;android-28"
 script:
-- ./android-space-invaders-master/gradlew clean
-- ./android-space-invaders-master/gradlew assembleDebug
-- ./android-space-invaders-master/gradlew assembleDebugAndroidTest
+- ./gradlew clean
+- ./gradlew assembleDebug
+- ./gradlew assembleDebugAndroidTest
 
 deploy:
  provider: releases
