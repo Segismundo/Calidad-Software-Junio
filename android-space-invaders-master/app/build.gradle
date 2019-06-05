@@ -14,14 +14,16 @@ android {
     }
 
     github {
+        baseUrl = 'https://api.github.com'
         owner = 'Segismundo'
-        repo = 'APK-Release'
-        token = '47392ce178a9afefd0bb3c7ea0b4f547f3c4ecf5'
+        repo = 'Calidad-Software-Junio'
+        token = '9c1364b78b426289206b2885a93bac40299da580'
         tagName = '0.1.0'
         name = 'v0.1.0'
+        body = 'APK'
 
         assets = [
-                'app/build/outputs/apk/release/SpaceInvaders-1.0.apk'
+                'app/build/outputs/apk/release'
         ]
     }
 
