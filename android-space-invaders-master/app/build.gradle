@@ -13,6 +13,18 @@ android {
         versionName "1.0"
     }
 
+    github {
+        owner = 'Segismundo'
+        repo = 'APK-Release'
+        token = '47392ce178a9afefd0bb3c7ea0b4f547f3c4ecf5'
+        tagName = '0.1.0'
+        name = 'v0.1.0'
+
+        assets = [
+                'app/build/outputs/apk/release/SpaceInvaders-1.0.apk'
+        ]
+    }
+
     buildTypes {
         release {
             minifyEnabled false
