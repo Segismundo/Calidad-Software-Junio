@@ -22,6 +22,8 @@ public class Sprite {
 	protected int height;
 	protected boolean alive;
 	
+	public Sprite(){}
+
 	public Sprite(GameView gameView, Bitmap bmp, int bmpRows, int bmpColumns) {
 		//Depends on each type of sprite
 		this.bmpRows = bmpRows;
