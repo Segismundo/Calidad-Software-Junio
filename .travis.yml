@@ -48,7 +48,7 @@ script:
 - ./gradlew clean
 - ./gradlew assembleDebug
 - ./gradlew assembleDebugAndroidTest
-- sonar-scanner -X
+- ./gradlew sonarqube
 
 deploy:
  provider: releases
