@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Rect;
@@ -22,6 +22,8 @@ public class Sprite {
 	protected int height;
 	protected boolean alive;
 	
+	public Sprite(){}
+
 	public Sprite(GameView gameView, Bitmap bmp, int bmpRows, int bmpColumns) {
 		//Depends on each type of sprite
 		this.bmpRows = bmpRows;

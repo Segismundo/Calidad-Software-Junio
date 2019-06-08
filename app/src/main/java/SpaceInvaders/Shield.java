@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package SpaceInvaders;
 
 import java.util.ArrayList;
 import java.util.Iterator;

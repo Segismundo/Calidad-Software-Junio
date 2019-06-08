@@ -1,13 +1,14 @@
-package marcosYedro.Android.SpaceInvaders;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
+package SpaceInvaders;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 
 @SuppressLint("WrongCall")
 public class InvaderSpaceFleet {
