@@ -11,6 +11,8 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
+        testApplicationId "spaceInvaders"
+        testInstrumentationRunner "spaceInvaders.Instrumentation"
     }
 
     github {
@@ -40,6 +42,12 @@ android {
         }
     }
 
+    sourceSets {
+        androidTest {
+            assets.srcDirs = ['src/androidTest/assets']
+        }
+    }
+
     lintOptions {
         abortOnError false
     }
@@ -58,5 +66,8 @@ dependencies {
     androidTestImplementation 'com.android.support:support-annotations:28.0.0'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test:rules:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    androidTestImplementation 'info.cukes:cucumber-android:1.2.5'
+    androidTestImplementation 'info.cukes:cucumber-picocontainer:1.2.5'
 }
 
