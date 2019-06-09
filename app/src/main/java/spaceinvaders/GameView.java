@@ -1,4 +1,4 @@
-package SpaceInvaders;
+package spaceinvaders;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -15,6 +15,9 @@ import android.media.SoundPool;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @SuppressLint({"WrongCall", "ViewConstructor"})
 public class GameView extends SurfaceView
@@ -50,6 +53,7 @@ public class GameView extends SurfaceView
 	private MediaPlayer mPlayer;
 	private int soundId;
 
+	private final static Logger LOGGER = Logger.getLogger("spaceInvaders");
 
 	public GameView(Context context, MainActivity activity)
 	{
@@ -69,6 +73,8 @@ public class GameView extends SurfaceView
 		setSurface();
 	}
 
+
+
 	private void setSurface()
 	{
 		getHolder().addCallback(new SurfaceHolder.Callback()
@@ -86,9 +92,9 @@ public class GameView extends SurfaceView
 						gameLoopThread.join();
 						retry = false;
 					}
-					catch (InterruptedException ex)
+					catch (Exception ex)
 					{
-						ex.printStackTrace();
+						LOGGER.log(Level.ALL, ex.getMessage());
 					}
 				}
 			}
