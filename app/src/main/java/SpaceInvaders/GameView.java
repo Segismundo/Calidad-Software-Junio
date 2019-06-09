@@ -86,8 +86,9 @@ public class GameView extends SurfaceView
 						gameLoopThread.join();
 						retry = false;
 					}
-					catch (InterruptedException ignored)
+					catch (InterruptedException ex)
 					{
+						ex.printStackTrace();
 					}
 				}
 			}
@@ -110,6 +111,7 @@ public class GameView extends SurfaceView
 			@Override
 			public void surfaceChanged(SurfaceHolder holder, int format, int width, int height)
 			{
+				//Do nothing.
 			}
 		});
 	}
@@ -279,62 +281,50 @@ public class GameView extends SurfaceView
 
 	private void checkCollisionShieldVsShipShoot()
 	{
-		if (goodSpaceShipShoot.isAlive())
+		if (goodSpaceShipShoot.isAlive() && shield.isCollision(goodSpaceShipShoot))
 		{
-			if (shield.isCollision(goodSpaceShipShoot))
-			{
-				this.goodSpaceShipShoot.setAlive(false);
-			}
+			this.goodSpaceShipShoot.setAlive(false);
 		}
 	}
 
 	private void checkCollisionShieldVsInvaderShoot()
 	{
-		if (invaderSpaceShipShoot.getBottom() > shield.getY() && invaderSpaceShipShoot.isAlive())
+		if (invaderSpaceShipShoot.getBottom() > shield.getY() && invaderSpaceShipShoot.isAlive() && shield.isCollision(invaderSpaceShipShoot))
 		{
-			if (shield.isCollision(invaderSpaceShipShoot))
-			{
-				this.invaderSpaceShipShoot.setAlive(false);
-			}
+			this.invaderSpaceShipShoot.setAlive(false);
 		}
 	}
 
 	private void checkCollisionShipVsInvaderShoot()
 	{
-		if (invaderSpaceShipShoot.getBottom() > goodSpaceShip.getY() && invaderSpaceShipShoot.isAlive())
+		if (invaderSpaceShipShoot.getBottom() <= goodSpaceShip.getY() || !invaderSpaceShipShoot.isAlive())
 		{
-			if (goodSpaceShip.isCollition(this.invaderSpaceShipShoot))
-			{
-				this.invaderSpaceShipShoot.setAlive(false);
-				this.goodSpaceShip.setAlive(false);
-				createExplosion(true, false);
-			}
+			return;
+		}
+		if (goodSpaceShip.isCollition(this.invaderSpaceShipShoot))
+		{
+			this.invaderSpaceShipShoot.setAlive(false);
+			this.goodSpaceShip.setAlive(false);
+			createExplosion(true, false);
 		}
 	}
 
 	private void checkCollisionShipShotVsInvaderShoot()
 	{
-		if (goodSpaceShipShoot.isAlive() && invaderSpaceShipShoot.isAlive())
+		if (goodSpaceShipShoot.isAlive() && invaderSpaceShipShoot.isAlive() && invaderSpaceShipShoot.isCollition(this.goodSpaceShipShoot))
 		{
-			if (invaderSpaceShipShoot.isCollition(this.goodSpaceShipShoot))
-			{
-				this.invaderSpaceShipShoot.setAlive(false);
-				this.goodSpaceShipShoot.setAlive(false);
-			}
+			this.invaderSpaceShipShoot.setAlive(false);
+			this.goodSpaceShipShoot.setAlive(false);
 		}
 	}
 
 	private void checkCollisionShipVsInvader()
 	{
-		if (goodSpaceShipShoot.isAlive())
+		if (goodSpaceShipShoot.isAlive() && invaderSpaceFleet.isCollision(this.goodSpaceShipShoot))
 		{
-
-			if (invaderSpaceFleet.isCollision(this.goodSpaceShipShoot))
-			{
-				scoreValue = scoreValue + invaderSpaceFleet.getPoints();
-				goodSpaceShipShoot.setAlive(false);
-				createExplosion(true, true);
-			}
+			scoreValue = scoreValue + invaderSpaceFleet.getPoints();
+			goodSpaceShipShoot.setAlive(false);
+			createExplosion(true, true);
 		}
 	}
 
