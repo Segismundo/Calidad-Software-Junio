@@ -19,9 +19,9 @@ import android.view.SurfaceView;
 @SuppressLint({"WrongCall", "ViewConstructor"})
 public class GameView extends SurfaceView
 {
-	private MainActivity activity;
-	private Context context;
-	private GameLoopThread gameLoopThread;
+	private final MainActivity activity;
+	private final Context context;
+	private final GameLoopThread gameLoopThread;
 	private InvaderSpaceFleet invaderSpaceFleet;
 	private boolean firstStart = true;
 	private Explosion explosion;
@@ -37,13 +37,13 @@ public class GameView extends SurfaceView
 	private int level = 1;
 	private int scoreValue = 0;
 	private int scoreBest3;
-	Paint scorePaint = new Paint();
-	Typeface scoreTypeFace = Typeface.create("Helvetica", Typeface.BOLD);
+	private final Paint scorePaint = new Paint();
+	private final Typeface scoreTypeFace = Typeface.create("Helvetica", Typeface.BOLD);
 	private int gameState = 1; // 1 WelcomeScreen; 2 Play; 3 GameOVer; 4 Next Level
 
-	WelcomeScreen welcomeScreen;
-	LevelTransitionScreen levelTransitionScreen;
-	BestScoresScreen bestScoresScreen;
+	private WelcomeScreen welcomeScreen;
+	private LevelTransitionScreen levelTransitionScreen;
+	private BestScoresScreen bestScoresScreen;
 
 	//Sound stuff
 	private SoundPool soundPool;
@@ -338,7 +338,7 @@ public class GameView extends SurfaceView
 		}
 	}
 
-	public void drawGameScreen(Canvas canvas)
+	private void drawGameScreen(Canvas canvas)
 	{
 		shipAlive(canvas);
 
