@@ -25,7 +25,7 @@ public class GameView extends SurfaceView
 	private final MainActivity activity;
 	private final Context context;
 	private final GameLoopThread gameLoopThread;
-	private InvaderSpaceFleet invaderSpaceFleet;
+	public InvaderSpaceFleet invaderSpaceFleet;
 	private boolean firstStart = true;
 	private Explosion explosion;
 	private GoodSpaceShip goodSpaceShip;
@@ -72,7 +72,6 @@ public class GameView extends SurfaceView
 
 		setSurface();
 	}
-
 
 
 	private void setSurface()
@@ -173,7 +172,7 @@ public class GameView extends SurfaceView
 	}
 
 	// Creates an invader ship
-	private void createInvaderSpaceFleet(int level)
+	public void createInvaderSpaceFleet(int level)
 	{
 		int landingHeight = goodSpaceShip.getHeight();
 		this.invaderSpaceFleet = new InvaderSpaceFleet(this, this.getHeight() - landingHeight, level);
