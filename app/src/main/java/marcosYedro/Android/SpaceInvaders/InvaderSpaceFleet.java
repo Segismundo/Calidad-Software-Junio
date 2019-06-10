@@ -27,8 +27,8 @@ public class InvaderSpaceFleet {
 	Bitmap bmpInvader_1;
 	Bitmap bmpInvader_2;
 	private int numberOfShips=0;
-	
-	public InvaderSpaceFleet(GameView gameView, int landingHeight,int level) {
+
+	public InvaderSpaceFleet(GameView gameView, int landingHeight, int level) {
 		timerMoveDown = timerMoveDown/(2*level);
 		periodMoveDown = periodMoveDown/(2*level);
 		numberOfShips = (level<=5)?(2 + level):7;
