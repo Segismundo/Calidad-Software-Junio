@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package spaceinvaders;
 
 public class SelectorVelocidad {
     public boolean esVelocidadValida(int i)

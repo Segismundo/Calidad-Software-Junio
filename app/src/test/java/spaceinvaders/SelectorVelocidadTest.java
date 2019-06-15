@@ -1,8 +1,7 @@
+package spaceinvaders;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import marcosYedro.Android.SpaceInvaders.SelectorVelocidad;
 
 public class SelectorVelocidadTest {
     @Test

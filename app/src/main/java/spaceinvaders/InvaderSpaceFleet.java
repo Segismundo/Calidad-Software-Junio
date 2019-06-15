@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package spaceinvaders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,6 +8,8 @@ import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
+
+import marcosYedro.Android.SpaceInvaders.R;
 
 @SuppressLint("WrongCall")
 public class InvaderSpaceFleet {

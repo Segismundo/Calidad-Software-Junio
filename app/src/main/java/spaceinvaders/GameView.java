@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package spaceinvaders;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,7 +14,9 @@ import android.media.SoundPool;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
- 
+
+import marcosYedro.Android.SpaceInvaders.R;
+
 @SuppressLint("WrongCall")
 public class GameView extends SurfaceView {
        private MainActivity activity;

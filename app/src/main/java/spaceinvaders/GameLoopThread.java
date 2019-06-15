@@ -1,4 +1,4 @@
-package marcosYedro.Android.SpaceInvaders;
+package spaceinvaders;
 
 import android.annotation.SuppressLint;
 import android.graphics.Canvas;
