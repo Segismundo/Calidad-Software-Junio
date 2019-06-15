@@ -14,7 +14,7 @@ import android.media.SoundPool;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
- 
+
 @SuppressLint("WrongCall")
 public class GameView extends SurfaceView {
        private MainActivity activity;
@@ -47,7 +47,12 @@ public class GameView extends SurfaceView {
        private SoundPool soundPool;
        private MediaPlayer mPlayer;
        private int soundId;
-       
+
+       public void setLevel(int level)
+	   {
+	   	this.level = level;
+	   }
+
        public GameView(Context context, MainActivity activity) {
              super(context);
              this.activity = activity;
@@ -104,7 +109,7 @@ public class GameView extends SurfaceView {
                     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {}
              });
        }
-       
+
        public GameLoopThread getGameLoopThread() {
     	   return gameLoopThread;
        }
