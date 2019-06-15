@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=CSJunio&metric=alert_status)](https://sonarcloud.io/dashboard?id=CSJunio)
+
 # Android Space Invader <img src ="./img/space-invader-icon.png" height=45 align="right"/>
 
 _Simple retro game [space-invaders](https://en.wikipedia.org/wiki/Space_Invaders) like for Android platform._
