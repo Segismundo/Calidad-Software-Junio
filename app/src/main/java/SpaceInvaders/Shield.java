@@ -1,4 +1,4 @@
-package spaceinvaders;
+package SpaceInvaders;
 
 import java.util.ArrayList;
 import java.util.Iterator;

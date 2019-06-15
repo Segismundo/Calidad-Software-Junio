@@ -1,4 +1,4 @@
-package spaceinvaders;
+package SpaceInvaders;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -12,8 +12,6 @@ import android.graphics.Paint.Align;
 import android.graphics.Typeface;
 import android.text.InputType;
 import android.widget.EditText;
-
-import marcosYedro.Android.SpaceInvaders.R;
 
 public class WelcomeScreen
 {

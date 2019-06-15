@@ -1,4 +1,4 @@
-package spaceinvaders;
+package SpaceInvaders;
 
 import org.junit.Assert;
 import org.junit.Test;

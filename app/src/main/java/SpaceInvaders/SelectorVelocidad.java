@@ -1,4 +1,4 @@
-package spaceinvaders;
+package SpaceInvaders;
 
 public class SelectorVelocidad {
     public boolean esVelocidadValida(int i)
