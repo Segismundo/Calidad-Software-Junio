@@ -1,4 +1,4 @@
-package SpaceInvaders;
+package spaceinvaders;
 
 import org.junit.Test;
 

@@ -1,10 +1,15 @@
-package spaceInvaders;
+package spaceinvaders.test;
 
 import android.os.Bundle;
 import android.support.test.runner.MonitoringInstrumentation;
 
+import cucumber.api.CucumberOptions;
 import cucumber.api.android.CucumberInstrumentationCore;
 
+
+@CucumberOptions(
+        features = "features",
+        glue = "SpaceInvaders")
 public class Instrumentation extends MonitoringInstrumentation {
 
     private final CucumberInstrumentationCore instrumentationCore = new CucumberInstrumentationCore(this);
