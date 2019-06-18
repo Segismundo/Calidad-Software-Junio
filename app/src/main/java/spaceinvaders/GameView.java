@@ -389,4 +389,16 @@ public class GameView extends SurfaceView {
 	public int getGameState() {
 		return gameState;
 	}
+
+	public GoodSpaceShip getGoodSpaceShip() {
+		return goodSpaceShip;
+	}
+
+	public int getScoreValue() {
+		return scoreValue;
+	}
+
+	public InvaderSpaceFleet getInvaderSpaceFleet() {
+		return invaderSpaceFleet;
+	}
 }
