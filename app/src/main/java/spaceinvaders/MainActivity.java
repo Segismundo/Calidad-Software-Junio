@@ -32,5 +32,9 @@ public class MainActivity extends Activity{
 		super.onDestroy();
 		gameView.stopMusicPlayer();
 		gameView.releaseMusicPlayer();
-	} 
+	}
+
+	public GameView getGameView() {
+		return gameView;
+	}
 }

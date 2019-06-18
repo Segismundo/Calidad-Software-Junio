@@ -381,8 +381,12 @@ public class GameView extends SurfaceView {
     	   mPlayer.release();
     	   soundPool.release();
        }
-       
+
        public void stopMusicPlayer(){
     	   mPlayer.stop();
        }
+
+	public int getGameState() {
+		return gameState;
+	}
 }
