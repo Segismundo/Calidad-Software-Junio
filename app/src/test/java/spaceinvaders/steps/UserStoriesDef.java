@@ -90,8 +90,4 @@ public class UserStoriesDef {
 
     }
 
-    private static Matcher<View> childAtPosition(
-            final Matcher<View> parentMatcher, final int position) {
-
-    }
 }
