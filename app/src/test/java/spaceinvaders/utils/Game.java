@@ -40,8 +40,7 @@ public class Game
         this.motherShip = new MotherShip(50,95,3000);
     }
 
-	private void createShield()
-	{
+	private void createShield()	{
 		int numberOfWalls = 3;
 		shield = new Shield(numberOfWalls);
 	}

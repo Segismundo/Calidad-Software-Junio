@@ -31,6 +31,7 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
@@ -60,17 +61,16 @@ public class UserStoriesDef {
 
     @When("^We shoot an alien$")
     public void weShootAnAlien() {
-        int alienLiveOld = game.alien.getLive();
-        game.alien.receiveShot(shoot);
-        int alienLiveNew = game.alien.getLive();
-        assertNotSame(alienLiveNew, alienLiveOld);
+        boolean alienLiveOld = game.getInvader().isAlive();
+        game.shootInvader();
+        boolean alienLiveNew = game.getInvader().isAlive();
+        assertNotEquals(alienLiveNew, alienLiveOld);
     }
 
     @Then("^The alien die$")
-    public void theAlienDie() throws Throwable
-    {
+    public void theAlienDie(){
         game.killInvader();
-        assertEquals(false, game.invader.isAlive());
+        assertEquals(false, game.getInvader().isAlive());
     }
 
     @Then("^We score some points$")
