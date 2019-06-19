@@ -66,11 +66,15 @@ public class UserStoriesDef {
     }
 
     @Then("^The alien die$")
-    public void theAlienDie() throws Throwable {
+    public void theAlienDie() throws Throwable
+    {
+        game.killInvader();
+        assertEquals(false, game.invader.isAlive());
     }
 
     @Then("^We score some points$")
     public void weScoreSomePoints() throws Throwable {
+        
     }
 
     @When("^We press back button$")
@@ -93,7 +97,8 @@ public class UserStoriesDef {
 
     @And("^We see our ranking in the game$")
     public void weSeeOurRankingInTheGame() throws Throwable {
-
+        game.showRanking();
+        assertEquals(true, game.rankingShowed);
     }
 
 }
