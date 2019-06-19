@@ -54,7 +54,18 @@ public class Game
     }
 
     public void killInvader(){
-        this.invader.setAlive(false);
+        if (invader.isCollition(goodSpaceShipShoot)){
+            invader.setAlive(false);
+        }
+    }
+
+    public void shootInvader(){
+        createGoodSpaceShipShoot(50,80);
+
+    }
+
+    public boolean isStarted() {
+        return (this.goodSpaceShip!= null)&&(this.invader!=null)&&(this.motherShip!=null)&&(this.shield!=null);
     }
 
 
