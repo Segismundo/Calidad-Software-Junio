@@ -80,15 +80,21 @@ public class UserStoriesDef {
 
     @When("^We hit the defense$")
     public void weHitDefense() {
+        game.defense(shoot);
+        assertEquals(1, game.getLastObjectHit());
     }
 
     @Then("^Defense should reduce its life$")
     public void defenseReduceLife() throws Throwable {
+        int defenseLiveOld = game.defense.getLive();
+        game.defense.receiveShot(shoot);
+        int defenseLiveNew = game.defense.getLive();
+        assertNotSame(defenseLiveNew, defenseLiveOld);
     }
 
     @When("^Die in the game$")
     public void dieInTheGame() {
-
+        assertEquals(0, game.getLifes());
     }
 
     @Then("^We enter the name \"([^\"]*)\"$")
