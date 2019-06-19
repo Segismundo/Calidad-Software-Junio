@@ -6,6 +6,10 @@ import android.view.Window;
 
 public class MainActivity extends Activity{
 	private GameView gameView;
+
+	public MainActivity(){
+		this.recreate();
+	}
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

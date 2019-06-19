@@ -8,6 +8,7 @@ import android.view.ViewParent;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
+import org.junit.Test;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -40,10 +41,10 @@ public class UserStoriesDef {
     private int fleetSize;
     private int points;
 
+    @Test
     @Given("^We open the app$")
     public void weOpenTheApp() {
-        mainActivity = new MainActivity();
-        view = mainActivity.getGameView();
+        view = new GameView();
     }
 
     @When("^We start the game$")
