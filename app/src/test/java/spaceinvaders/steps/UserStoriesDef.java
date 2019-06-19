@@ -41,6 +41,7 @@ public class UserStoriesDef {
     @Given("^We open the app$")
     public void weOpenTheApp() {
         this.game = new Game();
+        game.start();
     }
 
     @When("^We start the game$")
