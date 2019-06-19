@@ -24,6 +24,7 @@ public class Sprite {
     protected boolean alive;
 
     public Sprite() {
+        alive = true;
     }
 
     public Sprite(int height, int width, int x, int y) {
