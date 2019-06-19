@@ -49,12 +49,12 @@ public class UserStoriesDef {
     @When("^We start the game$")
     public void weStartTheGame() {
         game.start();
-
+        assertEquals(true, game.isStarted());
     }
 
     @Then("^We see an activity Screen$")
     public void weSeeAnActivityScreen() {
-
+        assertEquals(true, game.isLoaded());
     }
 
     @When("^We shoot an alien$")
@@ -74,7 +74,7 @@ public class UserStoriesDef {
 
     @Then("^We score some points$")
     public void weScoreSomePoints() throws Throwable {
-        
+
     }
 
     @When("^We press back button$")
@@ -98,7 +98,7 @@ public class UserStoriesDef {
     @And("^We see our ranking in the game$")
     public void weSeeOurRankingInTheGame() throws Throwable {
         game.showRanking();
-        assertEquals(true, game.rankingShowed);
+        assertEquals(true, game.rankingShowed());
     }
 
 }
