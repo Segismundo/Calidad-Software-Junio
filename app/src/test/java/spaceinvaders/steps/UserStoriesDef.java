@@ -17,6 +17,7 @@ import cucumber.api.java.en.When;
 import spaceinvaders.GameView;
 import spaceinvaders.GoodSpaceShip;
 import spaceinvaders.MainActivity;
+import spaceinvaders.utils.Game;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -30,21 +31,19 @@ import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
 
 public class UserStoriesDef {
 
     private MainActivity mainActivity;
-    private GameView view;
+    private Game game;
     private int fleetSize;
     private int points;
 
-    @Test
     @Given("^We open the app$")
     public void weOpenTheApp() {
-        view = new GameView();
+        game = new Game();
     }
 
     @When("^We start the game$")

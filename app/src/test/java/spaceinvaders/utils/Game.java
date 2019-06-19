@@ -19,11 +19,16 @@ public class Game {
     private GoodSpaceShip goodSpaceShip;
     private MotherShip motherShip;
     private Shield shield;
+    private Shoot goodSpaceShipShoot;
+    private Shoot invaderSpaceShipShoot;
     private int scoreValue=0;
     private int scoreBest3;
 
     public Game(){
-
+        createGoodSpaceShip();
+        createInvader();
+        createMotherInvader();
+        createShield();
     }
 
     // Creates a good ship
