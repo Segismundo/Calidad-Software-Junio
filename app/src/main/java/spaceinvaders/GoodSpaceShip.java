@@ -9,7 +9,11 @@ import android.hardware.SensorManager;
 
 public class GoodSpaceShip extends Sprite implements SensorEventListener{
 	float sensorSensitivity; 
-	
+
+	public GoodSpaceShip(int x, int y){
+
+	}
+
 	public GoodSpaceShip(GameView gameView, Bitmap bmp,int bmpRows, int bmpColumns, Context context) {
 		super(gameView, bmp, bmpRows, bmpColumns);
 		

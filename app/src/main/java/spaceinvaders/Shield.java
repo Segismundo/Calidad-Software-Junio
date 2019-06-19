@@ -1,17 +1,23 @@
 package spaceinvaders;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 public class Shield {
 	List<Wall> shield = new ArrayList<Wall>();
 	int y;
-	
+
+	public Shield(int numberOfWalls){
+		for (int i=0; i<numberOfWalls; i++) {
+			shield.add(new Wall());
+		}
+	}
+
 	public Shield(GameView gameView, Bitmap brickBmp,int spriteColumns,int horizontalNumOfBrick,int verticalNumOfBrick, int x, int y, int numberOfWalls, int separationX) {
 		this.y = y;
 		int x_shield;

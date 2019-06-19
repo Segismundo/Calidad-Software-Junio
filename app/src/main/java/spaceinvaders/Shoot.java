@@ -5,7 +5,11 @@ import android.graphics.Bitmap;
 public class Shoot extends Sprite {
 
 	boolean invaderShoot;
-	
+
+	public Shoot (int x, int y,int xSpeed, boolean invaderShoot,boolean alive){
+
+	}
+
 	public Shoot(GameView gameView, Bitmap bmp, int bmpRows, int bmpColumns, int x, int y,int xSpeed, boolean invaderShoot,boolean alive) {
 		super(gameView, bmp, bmpRows, bmpColumns);
 		

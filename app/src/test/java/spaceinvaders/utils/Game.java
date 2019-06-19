@@ -1,14 +1,8 @@
 package spaceinvaders.utils;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-
-import spaceinvaders.Explosion;
 import spaceinvaders.GoodSpaceShip;
-import spaceinvaders.InvaderSpaceFleet;
 import spaceinvaders.InvaderSpaceShip;
 import spaceinvaders.MotherShip;
-import spaceinvaders.R;
 import spaceinvaders.Shield;
 import spaceinvaders.Shoot;
 import spaceinvaders.Sprite;
@@ -33,33 +27,41 @@ public class Game {
 
     // Creates a good ship
     private void createGoodSpaceShip(){
-        this.goodSpaceShip = (GoodSpaceShip) new Sprite();
+        this.goodSpaceShip = new GoodSpaceShip(50,5);
     }
 
     // Creates an invader ship
     private void createInvader(){
-        this.invader = (InvaderSpaceShip) new Sprite();
+        this.invader = new InvaderSpaceShip(50,80,50);
     }
 
     public void createMotherInvader(){
-        this.motherShip = (MotherShip) new Sprite();
+        this.motherShip = new MotherShip(50,95,3000);
     }
 
     private void createShield(){
-        int horizontalNumOfBrick = 8;
-        int verticalNumOfBrick = 4;
-        int spriteColumns = 4;
         int numberOfWalls = 3;
+        shield = new Shield(numberOfWalls);
+    }
 
-        int wallWidth = bmpBrick.getWidth()/spriteColumns * horizontalNumOfBrick;
-        int separation = (this.getWidth() - wallWidth)/(numberOfWalls-1);
+    //Creates a good ship shoot
+    private void createGoodSpaceShipShoot(boolean alive) {
+        int spriteColumns = 2;
+        int spriteRows = 1;
+        int x = goodSpaceShip.getX()+goodSpaceShip.getWidth()/2 - (bmpGoodShoot.getWidth()/spriteColumns) / 2;
+        int y = goodSpaceShip.getY();
+        int xSpeed = goodSpaceShip.getXSpeed();
+        this.goodSpaceShipShoot = new Shoot(this,bmpGoodShoot,spriteRows,spriteColumns,x,y,xSpeed,false,alive);
+    }
 
-        int x_ini = 0;
-        int y_ini = goodSpaceShip.getY() - bmpBrick.getWidth() - 10;
-
-        for(int i = 0; i<numberOfWalls;i++){
-            shield = new Shield(this,bmpBrick,spriteColumns,horizontalNumOfBrick,verticalNumOfBrick,x_ini,y_ini,numberOfWalls,separation);
-        }
+    //Creates a invader ship shoot
+    private void createInvaderSpaceShipShoot(boolean alive) {
+        int spriteColumns = 9;
+        int spriteRows = 1;
+        Sprite shooterShip = invaderSpaceFleet.getShooter();
+        int x = shooterShip.getX()+shooterShip.getWidth()/2 - (bmpInvaderShoot.getWidth()/spriteColumns) / 2;
+        int y = shooterShip.getY();
+        this.invaderSpaceShipShoot = new Shoot(this,bmpInvaderShoot,spriteRows,spriteColumns,x,y,0,true,alive);
     }
 
     public void killInvader(){
