@@ -1,9 +1,6 @@
-package spaceinvaders.test;
+package spaceinvaders.steps;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.support.test.espresso.ViewInteraction;
-import android.support.test.rule.ActivityTestRule;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -11,10 +8,7 @@ import android.view.ViewParent;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
-import org.junit.Rule;
 
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -38,29 +32,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNull;
 
+
 public class UserStoriesDef {
 
     private MainActivity mainActivity;
     private GameView view;
     private int fleetSize;
     private int points;
-
-
-    @Rule
-    public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(MainActivity.class);
-
-    private Activity activity;
-
-    @Before("@UserStories-feature")
-    public void setup() {
-        activityTestRule.launchActivity(new Intent());
-        activity = activityTestRule.getActivity();
-    }
-
-    @After("@UserStories-feature")
-    public void tearDown() {
-        activityTestRule.finishActivity();
-    }
 
     @Given("^We open the app$")
     public void weOpenTheApp() {
