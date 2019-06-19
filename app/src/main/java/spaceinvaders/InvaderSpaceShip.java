@@ -6,7 +6,13 @@ public class InvaderSpaceShip extends Sprite {
     protected int points;
 
     public InvaderSpaceShip(int x, int y, int points) {
+        this.x = x;
+        this.y = y;
+        this.points=points;
+        this.alive=true;
 
+        setWidth(1);
+        setHeight(1);
     }
 
     public InvaderSpaceShip(GameView gameView, Bitmap bmp, int spriteRows, int spriteColumns, int x, int y, int points) {

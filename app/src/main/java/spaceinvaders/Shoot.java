@@ -12,6 +12,8 @@ public class Shoot extends Sprite {
 		this.ySpeed = invaderShoot ? 25 : -35;
 		this.alive = alive;
 		this.invaderShoot = invaderShoot;
+		setWidth(1);
+		setHeight(1);
 	}
 
 	public Shoot(GameView gameView, Bitmap bmp, int bmpRows, int bmpColumns, int x, int y,int xSpeed, boolean invaderShoot,boolean alive) {

@@ -2,11 +2,14 @@ package spaceinvaders;
 
 import org.junit.Test;
 
+import spaceinvaders.utils.SmokeTest;
+
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 public class SpriteTest {
 
+    @SmokeTest
     @Test
     public void CollitionTrue() {
         Sprite s1 = new Sprite();

@@ -28,6 +28,8 @@ public class BestScoresScreen {
 	AlertDialog.Builder builder;
 	private int actualScore;
 	private boolean scoreSet = false;
+
+	public BestScoresScreen(){}
 	
 	public BestScoresScreen(GameView gameView, Context context){
 		this.context = context;
