@@ -34,6 +34,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 
 public class UserStoriesDef {
@@ -77,12 +78,12 @@ public class UserStoriesDef {
 
     }
 
-    @When("^We press back button$")
-    public void wePressBackButton() {
+    @When("^We hit the defense$")
+    public void weHitDefense() {
     }
 
-    @Then("^We should exit the game$")
-    public void weShouldExitTheGame() throws Throwable {
+    @Then("^Defense should reduce its life$")
+    public void defenseReduceLife() throws Throwable {
     }
 
     @When("^Die in the game$")
@@ -92,7 +93,7 @@ public class UserStoriesDef {
 
     @Then("^We enter the name \"([^\"]*)\"$")
     public void weEnterTheName(String arg0) throws Throwable {
-
+        assertTrue(!game.getUserName().isEmpty());
     }
 
     @And("^We see our ranking in the game$")
