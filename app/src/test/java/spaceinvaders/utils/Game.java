@@ -6,16 +6,17 @@ import spaceinvaders.MotherShip;
 import spaceinvaders.Shield;
 import spaceinvaders.Shoot;
 
-public class Game {
+public class Game
+{
 
-    private InvaderSpaceShip invader;
-    private GoodSpaceShip goodSpaceShip;
-    private MotherShip motherShip;
-    private Shield shield;
-    private Shoot goodSpaceShipShoot;
-    private Shoot invaderSpaceShipShoot;
-    private int scoreValue=0;
-    private int scoreBest3;
+	private InvaderSpaceShip invader;
+	private GoodSpaceShip goodSpaceShip;
+	private MotherShip motherShip;
+	private Shield shield;
+	private Shoot goodSpaceShipShoot;
+	private Shoot invaderSpaceShipShoot;
+	private int scoreValue = 0;
+	private int scoreBest3;
 
     public Game(){
     }
@@ -39,10 +40,11 @@ public class Game {
         this.motherShip = new MotherShip(50,95,3000);
     }
 
-    private void createShield(){
-        int numberOfWalls = 3;
-        shield = new Shield(numberOfWalls);
-    }
+	private void createShield()
+	{
+		int numberOfWalls = 3;
+		shield = new Shield(numberOfWalls);
+	}
 
     private void createGoodSpaceShipShoot(int x, int y) {
         this.goodSpaceShipShoot = new Shoot(x,y,false,true);
