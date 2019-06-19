@@ -5,7 +5,6 @@ import spaceinvaders.InvaderSpaceShip;
 import spaceinvaders.MotherShip;
 import spaceinvaders.Shield;
 import spaceinvaders.Shoot;
-import spaceinvaders.Sprite;
 
 public class Game {
 
@@ -19,23 +18,24 @@ public class Game {
     private int scoreBest3;
 
     public Game(){
+    }
+
+    public void start(){
         createGoodSpaceShip();
         createInvader();
         createMotherInvader();
         createShield();
     }
 
-    // Creates a good ship
     private void createGoodSpaceShip(){
         this.goodSpaceShip = new GoodSpaceShip(50,5);
     }
 
-    // Creates an invader ship
     private void createInvader(){
         this.invader = new InvaderSpaceShip(50,80,50);
     }
 
-    public void createMotherInvader(){
+    private void createMotherInvader(){
         this.motherShip = new MotherShip(50,95,3000);
     }
 
@@ -44,27 +44,89 @@ public class Game {
         shield = new Shield(numberOfWalls);
     }
 
-    //Creates a good ship shoot
-    private void createGoodSpaceShipShoot(boolean alive) {
-        int spriteColumns = 2;
-        int spriteRows = 1;
-        int x = goodSpaceShip.getX()+goodSpaceShip.getWidth()/2 - (bmpGoodShoot.getWidth()/spriteColumns) / 2;
-        int y = goodSpaceShip.getY();
-        int xSpeed = goodSpaceShip.getXSpeed();
-        this.goodSpaceShipShoot = new Shoot(this,bmpGoodShoot,spriteRows,spriteColumns,x,y,xSpeed,false,alive);
+    private void createGoodSpaceShipShoot(int x, int y) {
+        this.goodSpaceShipShoot = new Shoot(x,y,false,true);
     }
 
-    //Creates a invader ship shoot
-    private void createInvaderSpaceShipShoot(boolean alive) {
-        int spriteColumns = 9;
-        int spriteRows = 1;
-        Sprite shooterShip = invaderSpaceFleet.getShooter();
-        int x = shooterShip.getX()+shooterShip.getWidth()/2 - (bmpInvaderShoot.getWidth()/spriteColumns) / 2;
-        int y = shooterShip.getY();
-        this.invaderSpaceShipShoot = new Shoot(this,bmpInvaderShoot,spriteRows,spriteColumns,x,y,0,true,alive);
+    private void createInvaderSpaceShipShoot(int x, int y) {
+        this.invaderSpaceShipShoot = new Shoot(x,y,true,true);
     }
 
     public void killInvader(){
         this.invader.setAlive(false);
+    }
+
+
+
+
+
+    //
+    //
+    //   Getter and Setter
+    //
+    //
+
+    public GoodSpaceShip getGoodSpaceShip() {
+        return goodSpaceShip;
+    }
+
+    public void setGoodSpaceShip(GoodSpaceShip goodSpaceShip) {
+        this.goodSpaceShip = goodSpaceShip;
+    }
+
+    public InvaderSpaceShip getInvader() {
+        return invader;
+    }
+
+    public void setInvader(InvaderSpaceShip invader) {
+        this.invader = invader;
+    }
+
+    public MotherShip getMotherShip() {
+        return motherShip;
+    }
+
+    public void setMotherShip(MotherShip motherShip) {
+        this.motherShip = motherShip;
+    }
+
+    public Shield getShield() {
+        return shield;
+    }
+
+    public void setShield(Shield shield) {
+        this.shield = shield;
+    }
+
+    public Shoot getGoodSpaceShipShoot() {
+        return goodSpaceShipShoot;
+    }
+
+    public void setGoodSpaceShipShoot(Shoot goodSpaceShipShoot) {
+        this.goodSpaceShipShoot = goodSpaceShipShoot;
+    }
+
+    public Shoot getInvaderSpaceShipShoot() {
+        return invaderSpaceShipShoot;
+    }
+
+    public void setInvaderSpaceShipShoot(Shoot invaderSpaceShipShoot) {
+        this.invaderSpaceShipShoot = invaderSpaceShipShoot;
+    }
+
+    public int getScoreValue() {
+        return scoreValue;
+    }
+
+    public void setScoreValue(int scoreValue) {
+        this.scoreValue = scoreValue;
+    }
+
+    public int getScoreBest3() {
+        return scoreBest3;
+    }
+
+    public void setScoreBest3(int scoreBest3) {
+        this.scoreBest3 = scoreBest3;
     }
 }
