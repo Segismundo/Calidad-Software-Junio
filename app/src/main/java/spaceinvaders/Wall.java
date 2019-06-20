@@ -1,12 +1,12 @@
 package spaceinvaders;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class Wall {
 	private List<Brick> wall = new ArrayList<Brick>();
@@ -16,7 +16,15 @@ public class Wall {
 	//private int y;
 	//private int spriteColumns;
 	private int spriteRows = 1;
-	
+
+	public Wall(){
+		for (int i = 0; i<8;i++){
+			for(int j = 0; j < 4; j++){
+				wall.add(new Brick() );
+			}
+		}
+	}
+
 	public Wall(GameView gameView, Bitmap brickBmp,int spriteColumns,int horizontalNumOfBrick,int verticalNumOfBrick, int x, int y) {
 //		this.x = x;
 //		this.y = y;

@@ -4,6 +4,13 @@ import android.graphics.Bitmap;
 
 public class Brick extends Sprite{
 
+	public Brick(){
+		this.x = 20;
+		this.y = 15;
+		this.alive = true;
+		setWidth(1);
+		setHeight(1);
+	}
 	public Brick(GameView gameView, Bitmap bmp, int bmpRows, int bmpColumns, int x, int y) {
 		super(gameView, bmp, bmpRows, bmpColumns);
 		this.x = x;
