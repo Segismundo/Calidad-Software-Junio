@@ -1,0 +1,61 @@
+sudo: false
+language: android
+jdk: oraclejdk8
+before_cache:
+- rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+- r features/support
+- r features/step_definitions
+cache:
+ directories:
+ - $HOME/.gradle/caches
+ - $HOME/.gradle/wrapper/
+env:
+ global:
+  - ANDROID_API_LEVEL=25
+  - EMULATOR_API_LEVEL=21
+  - ANDROID_BUILD_TOOLS_VERSION=28.0.3
+  - ANDROID_ABI=google_apis/armeabi-v7a
+  - ADB_INSTALL_TIMEOUT=20
+android:
+ components:
+  - platform-tools
+  - tools
+  - android-28
+  - build-tools-28.0.3
+  - extra-google-m2repository
+  - extra-android-m2repository
+  # Google Play Services
+  - extra-google-google_play_services
+  # Support library
+  - extra-android-support
+  - addon-google_apis-google-$ANDROID_API_LEVEL
+  - addon-google_apis-google-$EMULATOR_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$ANDROID_API_LEVEL
+  - sys-img-armeabi-v7a-addon-google_apis-google-$EMULATOR_API_LEVEL
+before_install:
+- chmod +x gradlew
+- yes | sdkmanager "platforms;android-28"
+
+addons:
+  sonarcloud:
+    organization: "segismundo-github" # the key of the org you chose at step #3
+    token:
+      # encrypted value of your token
+      secure: "U2SeiG5ne8rdUmn1wMMnci6DB7LsFX3MpWeueB0NQqaRZiM6CPKoIPP6XNq8yKaOhPQXQNeC1aHZemf2EAOA09JH/e8hynF8OKAH+5yssTPu1BUvf1PaHiE1H2Ceu0eoqVtcnzD2erGuKelJfDYgFM+b2V4yHC1oXrNrK8loK0enMfUaogw9IrvkHvybTNXGbWoMeE47INyEVRv8fTulI33TcjVmCJctV4avy2mEeW1B+4p/oe4j5bzDYPE5FzLRdZRIaD3PuBREoPdVUDS/eD2GShFB8jP5LQIP1gKRpACd08aW5d0ye7doyxv6mPluFB/vxCUHLt3FUFZK7lqJ9UQHv6iNtqgqYwtpFMSpaAO2kvrjU2wuIxFUfTzE+5JXydFlz4oRusio4ZYV55ffk2mWUECxdwGulofzKFUOVYj4D6IW/6ovWrDRIS5ukWbd3puEGd8fq4++ShxRHg+QPvNRROsLzmlFCDfRKtvkHBERSKeX1+03SCMptUzD5FtBwGKPRZvCWNqIYsjiG3w30UKAy3zoeb2xDG1lkdErGsectYzCHCgf7LN8tVvrq6Y3K5zA7Pt3nHiqIS7091dP4DYaCuhxG+tRm3dOSTvldFY8hOYhTZQzbZIBdrS4c6gTuiawFm7DofZaIGQTCALNFig6EApTL/fB50Qn2mALL6U="
+
+script:
+- ./gradlew clean
+- ./gradlew assembleDebug
+- ./gradlew assembleDebugAndroidTest
+- ./gradlew sonarqube
+
+deploy:
+ provider: releases
+ api_key: $GITHUB_TOKEN
+ file: 
+  - "app/*"
+ skip_cleanup: true
+ on:
+  repo: Segismundo/Calidad-Software-Junio
+  tags: false
